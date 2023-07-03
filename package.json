@@ -7,12 +7,15 @@
   "engines": {
     "node": ">=18.0.0"
   },
+  "main": "src/Service/index.ts",
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\" --fix",
     "test": "jest --silent",
     "test:verbose": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "yarn build && node dist/Service/index.js && yarn copy",
+    "copy": "cp ./src/Service/database/users.json ./dist/Service/"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.22.5",
@@ -20,6 +23,7 @@
     "@types/jest": "^29.5.2",
     "@types/lodash": "^4.14.195",
     "@types/node": "^20.3.1",
+    "@types/uuid": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "^5.60.0",
     "@typescript-eslint/parser": "^5.60.0",
     "eslint": "^8.43.0",
@@ -35,6 +39,7 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "uuid": "^9.0.0"
   }
 }
