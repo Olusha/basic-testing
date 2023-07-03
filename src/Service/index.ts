@@ -3,20 +3,8 @@ import * as url from 'url';
 import {readFile} from 'fs/promises';
 import {v4 as uuid, validate} from 'uuid';
 import {createWriteStream} from 'fs';
-
-interface User {
-    id: string;
-    username: string;
-    age: number;
-    hobbies: string[];
-}
-
-enum HttpMethod {
-    POST = 'POST',
-    GET = 'GET',
-    PUT = 'PUT',
-    DELETE = 'DELETE'
-}
+import {User} from './models/user';
+import {HttpMethod} from './models/http-method';
 
 
 const baseApi = '/api/users';
@@ -296,7 +284,6 @@ const requestListener = async function (
         await deleteMethod(req, res);
         return;
     }
-
 
     res.writeHead(500);
     res.end();

@@ -14,7 +14,7 @@
     "test": "jest --silent",
     "test:verbose": "jest",
     "build": "tsc",
-    "start": "yarn build && node dist/Service/index.js && yarn copy",
+    "start:dev": "yarn build && node dist/Service/index.js && yarn copy",
     "copy": "cp ./src/Service/database/users.json ./dist/Service/"
   },
   "devDependencies": {
@@ -26,6 +26,7 @@
     "@types/uuid": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "^5.60.0",
     "@typescript-eslint/parser": "^5.60.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
